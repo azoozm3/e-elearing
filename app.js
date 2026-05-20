@@ -237,9 +237,10 @@ function submitQuiz(modId) {
     `;
     resultEl.classList.remove('hidden');
 
+    // Save every quiz attempt to DB (pass or fail), while progress unlock remains pass-only.
+    saveResultToDatabase(modId, correct, questions.length, score);
     if (passed) {
         saveProgress(modId, score);
-        saveResultToDatabase(modId, correct, questions.length, score);
     }
 
     resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -266,7 +267,11 @@ async function saveResultToDatabase(modId, correct, total, pct) {
         fd.append('score',           correct);
         fd.append('total_questions', total);
         fd.append('percentage',      pct);
-        await fetch('save_result.php', { method: 'POST', body: fd });
+        const resp = await fetch('save_result.php', { method: 'POST', body: fd });
+        const data = await resp.json().catch(() => null);
+        if (!resp.ok || !data?.success) {
+            showToast('⚠️ Could not save quiz result to database');
+        }
     } catch (e) { /* non-critical */ }
 }
 

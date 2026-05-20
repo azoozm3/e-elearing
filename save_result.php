@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '/ResultController.php';
+require_once __DIR__ . '/ResultController.php';
 try {
     ResultController::save();
 } catch (Throwable $e) {

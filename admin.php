@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     header('Location: admin_login.php');
- 
+    exit;
 }
 require_once 'database.php';
 require_once 'ResultModel.php';
@@ -18,11 +18,13 @@ $toggleOrder = $order === 'DESC' ? 'ASC' : 'DESC';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin — Quiz Results</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
 </head>
 <body class="admin-page">
+    <div class="admin-shell">
     <h1>📊 Quiz Results — Admin Panel</h1>
+    <p class="admin-subtitle">Track learner attempts, search by username, and manage saved records.</p>
 
     <div class="admin-bar">
         <form method="get" style="display:flex;gap:.5rem;flex-wrap:wrap">
@@ -40,7 +42,10 @@ $toggleOrder = $order === 'DESC' ? 'ASC' : 'DESC';
     </div>
 
     <?php if (empty($results)): ?>
-        <div class="empty">No results found<?= $search ? ' for "' . htmlspecialchars($search, ENT_QUOTES, 'UTF-8') . '"' : '' ?>.</div>
+        <div class="empty">
+            <strong>No results found<?= $search ? ' for "' . htmlspecialchars($search, ENT_QUOTES, 'UTF-8') . '"' : '' ?>.</strong>
+            <p>Tip: ask a student to submit any quiz, then refresh this page.</p>
+        </div>
     <?php else: ?>
         <table>
             <thead>
@@ -68,6 +73,7 @@ $toggleOrder = $order === 'DESC' ? 'ASC' : 'DESC';
     <?php endif; ?>
 
     <div class="toast" id="toast"></div>
+    </div>
 
     <script>
     async function deleteResult(id) {

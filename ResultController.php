@@ -1,6 +1,6 @@
 <?php
-require_once '/common.php';
-require_once '/ResultModel.php';
+require_once __DIR__ . '/common.php';
+require_once __DIR__ . '/ResultModel.php';
 
 class ResultController {
     public static function save(): void {

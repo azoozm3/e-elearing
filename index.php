@@ -1,316 +1,186 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Learn — Master Artificial Intelligence</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/landing.css">   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SouqSphere — Multi-Vendor Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="landing.css">
 </head>
 <body>
+  <header id="main-header" class="site-header">
+    <nav class="nav-shell">
+      <a href="#" class="brand" aria-label="SouqSphere home">
+        <span class="brand-mark">S</span>
+        <span>SouqSphere</span>
+      </a>
+      <div class="nav-links" aria-label="Primary navigation">
+        <a href="#categories">Categories</a>
+        <a href="#products">Products</a>
+        <a href="#seller">Seller</a>
+        <a href="#admin">Admin</a>
+      </div>
+      <div class="nav-actions">
+        <button class="icon-btn" id="lang-toggle" type="button" aria-label="Toggle Arabic and English">عربي</button>
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle dark mode">☾</button>
+        <a href="#auth" class="btn-ghost">Login</a>
+        <a href="#checkout" class="btn-primary">Cart · $246</a>
+      </div>
+    </nav>
+  </header>
 
-<!-- ═══════════════════════════════ HEADER ═══════════════════════════════ -->
-<header id="main-header">
-  <nav>
-    <a href="#" class="nav-logo">
-      <div class="logo-icon">🧠</div>
-      <span>AI Learn</span>
-    </a>
-    <div class="nav-actions">
-      <a href="admin_login.php" class="btn-ghost">Admin Login</a>
-      <a href="#start" class="btn-primary">Get Started →</a>
-    </div>
-  </nav>
-</header>
-
-<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
-<section class="hero" id="start">
-  <div class="hero-bg"></div>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-
-  <div class="hero-content">
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
-      Now Live — 4 New AI Modules Added
-    </div>
-
-    <h1>
-      Learn AI Basics<br>
-      <span class="gradient-text">The Smart Way</span>
-    </h1>
-
-    <p>An interactive platform that makes artificial intelligence simple, engaging, and genuinely fun. Short modules. Quick quizzes. Real understanding.</p>
-
-    <form class="hero-form" id="start-form">
-      <div class="hero-input-wrap">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-        </svg>
-        <input id="username" type="text" placeholder="Your name to get started..." maxlength="80" required>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-glow glow-one"></div>
+      <div class="hero-glow glow-two"></div>
+      <div class="hero-copy">
+        <span class="eyebrow">Amazon-scale marketplace starter</span>
+        <h1>Launch a modern marketplace for customers, sellers, and admins.</h1>
+        <p>SouqSphere is a responsive multi-vendor commerce experience with role-based dashboards, multilingual storefronts, analytics, inventory tools, coupons, reviews, and a scalable PostgreSQL-ready data model.</p>
+        <div class="hero-search" role="search">
+          <input type="search" placeholder="Search products, categories, sellers, or brands">
+          <select aria-label="Category filter">
+            <option>All categories</option>
+            <option>Electronics</option>
+            <option>Fashion</option>
+            <option>Gaming</option>
+          </select>
+          <button type="button">Search</button>
+        </div>
+        <div class="hero-meta">
+          <span>JWT Auth</span><span>PostgreSQL Schema</span><span>Cloudinary Uploads</span><span>RTL Ready</span>
+        </div>
       </div>
-      <button type="submit" class="btn-hero">Start Learning →</button>
-    </form>
-
-    <p class="hero-hint">
-      Free forever · No account needed ·
-      <a href="admin_login.php">Admin access here</a>
-    </p>
-
-    <div class="social-proof">
-      <div class="sp-text">
-        <div class="sp-stars">★★★★★</div>
-        <div><strong>50+</strong> learners this month</div>
-      </div>
-      <div class="sp-divider"></div>
-      <div class="sp-text">
-        <strong>92%</strong> completion rate
-      </div>
-      <div class="sp-divider"></div>
-      <div class="sp-text">
-        <strong>100%</strong> free to use
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ STATS ═══════════════════════════════ -->
-<section class="stats-strip">
-  <div class="section-inner">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <div class="stat-num">4+</div>
-        <div class="stat-label">Learning Modules</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">50+</div>
-        <div class="stat-label">Active Learners</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">92%</div>
-        <div class="stat-label">Completion Rate</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">0$</div>
-        <div class="stat-label">Cost to Join</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ FEATURES ═══════════════════════════════ -->
-<section class="features" id="features">
-  <div class="section-inner">
-    <div class="features-header center">
-      <div class="section-label">Why AI Learn</div>
-      <h2 class="section-title">Everything you need to<br>understand AI</h2>
-      <p class="section-sub">Carefully designed modules that break down complex concepts into clear, digestible lessons.</p>
-    </div>
-
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon fi-purple">🎯</div>
-        <h3>Bite-sized Modules</h3>
-        <p>Each lesson is designed to be completed in 10–15 minutes, so you can learn at your own pace without overwhelm.</p>
-        <span class="feature-tag">Self-paced</span>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon fi-blue">⚡</div>
-        <h3>Instant Quizzes</h3>
-        <p>Test your knowledge right after each module. Immediate feedback helps you retain what you've learned.</p>
-        <span class="feature-tag">Adaptive</span>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon fi-green">📊</div>
-        <h3>Progress Tracking</h3>
-        <p>See exactly where you are in your learning journey. Visual dashboards keep you motivated.</p>
-        <span class="feature-tag">Visual</span>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon fi-amber">🏆</div>
-        <h3>Earn Badges</h3>
-        <p>Complete modules and quizzes to earn achievement badges. Share your progress and celebrate milestones.</p>
-        <span class="feature-tag">Gamified</span>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon fi-pink">🤖</div>
-        <h3>Real AI Concepts</h3>
-        <p>From neural networks to LLMs — we cover it all in plain English, without the jargon overload.</p>
-        <span class="feature-tag">Comprehensive</span>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon fi-teal">🌐</div>
-        <h3>No Account Needed</h3>
-        <p>Just enter your name and start learning. No emails, no passwords, no friction whatsoever.</p>
-        <span class="feature-tag">Instant access</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ TESTIMONIALS ═══════════════════════════════ -->
-<section class="testimonials" id="testimonials">
-  <div class="section-inner">
-    <div class="testimonials-header center">
-      <div class="section-label">Reviews</div>
-      <h2 class="section-title">What learners are saying</h2>
-      <p class="section-sub">Real feedback from real people who've been through the modules.</p>
-    </div>
-
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="t-stars light">★★★★★</div>
-        <p class="t-quote">"I tried reading AI textbooks and got lost. This platform explained everything in a way that just clicks. Finished 4 modules in one evening!"</p>
-        <div class="t-author">
-          <div class="t-avatar" style="background: #5548d9;">AR</div>
+      <aside class="hero-panel glass-card" aria-label="Live marketplace snapshot">
+        <div class="panel-top">
           <div>
-            <div class="t-name">Ahmed R.</div>
-            <div class="t-role">Computer Science Student</div>
+            <span class="muted">Today revenue</span>
+            <strong>$128,430</strong>
           </div>
+          <span class="pill success">+18.4%</span>
         </div>
-      </div>
+        <div class="chart-bars" aria-hidden="true">
+          <span style="height: 42%"></span><span style="height: 68%"></span><span style="height: 56%"></span><span style="height: 84%"></span><span style="height: 72%"></span><span style="height: 96%"></span>
+        </div>
+        <div class="mini-order">
+          <span class="order-icon">🛒</span>
+          <div><strong>Order #9821</strong><small>3 sellers · paid · shipping today</small></div>
+        </div>
+        <div class="mini-order">
+          <span class="order-icon violet">🏬</span>
+          <div><strong>Seller approval</strong><small>12 pending applications</small></div>
+        </div>
+      </aside>
+    </section>
 
-      <div class="testimonial-card featured">
-        <div class="t-stars dark">★★★★★</div>
-        <p class="t-quote">"The quizzes after each module are what make this different. You actually remember things because you test yourself immediately. Brilliant design."</p>
-        <div class="t-author">
-          <div class="t-avatar" style="background: rgba(255,255,255,0.2);">MK</div>
-          <div>
-            <div class="t-name">Maya K.</div>
-            <div class="t-role">Marketing Manager</div>
-          </div>
-        </div>
-      </div>
+    <section class="stats-strip" aria-label="Marketplace metrics">
+      <div><strong>52K+</strong><span>Products</span></div>
+      <div><strong>1,240</strong><span>Approved sellers</span></div>
+      <div><strong>4.8/5</strong><span>Average rating</span></div>
+      <div><strong>99.9%</strong><span>Secure checkout uptime</span></div>
+    </section>
 
-      <div class="testimonial-card">
-        <div class="t-stars light">★★★★★</div>
-        <p class="t-quote">"No signup, no nonsense. Just enter your name and learn. In 2025, that's rare. The content itself is excellent — clear, honest, up to date."</p>
-        <div class="t-author">
-          <div class="t-avatar" style="background: #0ea5e9;">TN</div>
-          <div>
-            <div class="t-name">Tariq N.</div>
-            <div class="t-role">Freelance Developer</div>
-          </div>
-        </div>
+    <section class="section" id="categories">
+      <div class="section-heading">
+        <span class="eyebrow">Unlimited categories</span>
+        <h2>Browse every department in one polished storefront.</h2>
+        <p>Category cards are designed for deep catalogs, SEO pages, pagination, lazy loading, and product filters by price, brand, rating, seller, and stock.</p>
       </div>
+      <div class="category-grid">
+        <?php
+          $categories = [
+            ['📱','Electronics','12,480 products'], ['👗','Fashion','9,820 products'], ['🛋️','Furniture','4,410 products'],
+            ['🏠','Home','7,230 products'], ['⚽','Sports','2,980 products'], ['🥗','Food','1,780 products'],
+            ['💄','Beauty','6,100 products'], ['🚗','Automotive','3,540 products'], ['📚','Books','8,450 products'], ['🎮','Gaming','5,930 products']
+          ];
+          foreach ($categories as $cat) {
+            echo "<article class='category-card'><span>{$cat[0]}</span><h3>{$cat[1]}</h3><p>{$cat[2]}</p></article>";
+          }
+        ?>
+      </div>
+    </section>
 
-      <div class="testimonial-card">
-        <div class="t-stars light">★★★★☆</div>
-        <p class="t-quote">"My students use this alongside our course. The bite-sized format is perfect for self-study. The LLM module especially is fantastic."</p>
-        <div class="t-author">
-          <div class="t-avatar" style="background: #10b981;">SL</div>
-          <div>
-            <div class="t-name">Sara L.</div>
-            <div class="t-role">University Lecturer</div>
-          </div>
+    <section class="section products-section" id="products">
+      <div class="section-heading split">
+        <div>
+          <span class="eyebrow">Customer website</span>
+          <h2>Product discovery that feels like Noon, Amazon, and Alibaba.</h2>
+        </div>
+        <div class="filter-row" aria-label="Sample product filters">
+          <button>Category</button><button>Price</button><button>Brand</button><button>Rating</button>
         </div>
       </div>
+      <div class="product-grid">
+        <article class="product-card"><span class="badge">-20%</span><div class="product-art">🎧</div><h3>Noise-Cancel Pro Headphones</h3><p>AudioHub Store · SKU AH-102</p><div class="rating">★★★★★ <span>(428)</span></div><div class="price">$89 <del>$112</del></div><button>Add to cart</button></article>
+        <article class="product-card"><span class="badge hot">Hot</span><div class="product-art">⌚</div><h3>Smart Fitness Watch X2</h3><p>FitZone · 38 variants</p><div class="rating">★★★★☆ <span>(1.2k)</span></div><div class="price">$149</div><button>Add to wishlist</button></article>
+        <article class="product-card"><span class="badge">New</span><div class="product-art">👜</div><h3>Premium Leather Tote</h3><p>Urban Fashion · In stock</p><div class="rating">★★★★★ <span>(214)</span></div><div class="price">$64</div><button>View details</button></article>
+        <article class="product-card"><span class="badge success">Eco</span><div class="product-art">🪑</div><h3>Nordic Lounge Chair</h3><p>HomeCraft Seller</p><div class="rating">★★★★☆ <span>(87)</span></div><div class="price">$236</div><button>Compare</button></article>
+      </div>
+    </section>
 
-      <div class="testimonial-card">
-        <div class="t-stars light">★★★★★</div>
-        <p class="t-quote">"I'm not a tech person at all but I understood every single lesson. The language is clear and the examples are relatable. Highly recommend."</p>
-        <div class="t-author">
-          <div class="t-avatar" style="background: #f59e0b;">PJ</div>
-          <div>
-            <div class="t-name">Priya J.</div>
-            <div class="t-role">HR Professional</div>
-          </div>
+    <section class="section dashboard-showcase" id="seller">
+      <div class="dashboard-card seller-card">
+        <span class="eyebrow">Seller dashboard</span>
+        <h2>Every merchant controls only their own store, products, orders, and analytics.</h2>
+        <div class="feature-list">
+          <span>Create store, logo, and banner</span><span>Add products, images, SKU, stock, variants</span><span>Order status and customer views</span><span>Revenue, monthly reports, best sellers</span>
         </div>
       </div>
+      <div class="mock-dashboard glass-card">
+        <div class="dash-header"><strong>Seller Analytics</strong><span class="pill">July</span></div>
+        <div class="dash-grid"><div><b>$32.6K</b><small>Revenue</small></div><div><b>684</b><small>Orders</small></div><div><b>128</b><small>Products</small></div><div><b>14</b><small>Low stock</small></div></div>
+        <div class="inventory-list"><p><span>Wireless Mouse</span><b>892 sold</b></p><p><span>USB-C Hub</span><b>614 sold</b></p><p><span>Laptop Stand</span><b>391 sold</b></p></div>
+      </div>
+    </section>
 
-      <div class="testimonial-card">
-        <div class="t-stars light">★★★★★</div>
-        <p class="t-quote">"Finished the entire ethics module in one sitting. Made me think about AI in a completely new way. Can't wait for more content to drop."</p>
-        <div class="t-author">
-          <div class="t-avatar" style="background: #7c3aed;">KW</div>
-          <div>
-            <div class="t-name">Khalid W.</div>
-            <div class="t-role">Product Designer</div>
-          </div>
+    <section class="section dashboard-showcase admin" id="admin">
+      <div class="mock-dashboard dark-dashboard">
+        <div class="dash-header"><strong>Admin Command Center</strong><span class="pill danger">12 pending sellers</span></div>
+        <div class="dash-grid"><div><b>88K</b><small>Users</small></div><div><b>1.2K</b><small>Sellers</small></div><div><b>$2.4M</b><small>Revenue</small></div><div><b>$184K</b><small>Commission</small></div></div>
+        <div class="admin-actions"><button>Approve seller</button><button>Suspend account</button><button>Manage coupons</button></div>
+      </div>
+      <div class="dashboard-card">
+        <span class="eyebrow">Admin dashboard</span>
+        <h2>Full platform control with charts, moderation, settings, and secure APIs.</h2>
+        <div class="feature-list">
+          <span>Manage users, sellers, categories, products</span><span>Approve/reject sellers and suspend stores</span><span>Orders, payments, reviews, banners, coupons</span><span>Email, notification, SEO, and site settings</span>
         </div>
       </div>
+    </section>
+
+    <section class="section architecture" id="auth">
+      <div class="section-heading center">
+        <span class="eyebrow">Production architecture</span>
+        <h2>Clean React + Express blueprint with secure role protection.</h2>
+      </div>
+      <div class="architecture-grid">
+        <article><h3>Frontend</h3><p>React, Vite, TailwindCSS, Zustand, React Hook Form, Zod, reusable components, skeleton states, toast notifications, dark/light mode, and Arabic/English RTL support.</p></article>
+        <article><h3>Backend</h3><p>Node.js, Express.js, RESTful APIs, JWT middleware, role guards for Admin/Seller/Customer, error handling, pagination, search, validation, and secure upload flows.</p></article>
+        <article><h3>Database</h3><p>PostgreSQL-ready models for users, stores, categories, products, orders, reviews, wishlist, cart, coupons, notifications, payments, and shipping records.</p></article>
+      </div>
+    </section>
+
+    <section class="cta-section" id="checkout">
+      <div class="cta-card glass-card">
+        <span class="eyebrow">Ready for full-stack implementation</span>
+        <h2>Ship a polished marketplace MVP with buyer, seller, and admin journeys.</h2>
+        <p>Includes checkout, order history, tracking, reviews, notifications, seller isolation, admin moderation, dashboard statistics, and extensible category management.</p>
+        <div class="cta-actions"><a href="#products" class="btn-primary">Explore storefront</a><a href="#admin" class="btn-ghost light">View dashboards</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="#" class="brand"><span class="brand-mark">S</span><span>SouqSphere</span></a>
+      <p>© 2026 SouqSphere Marketplace. Built for scalable multi-vendor commerce.</p>
+      <div><a href="#auth">JWT Roles</a><a href="#categories">Categories</a><a href="#seller">Seller Tools</a></div>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ═══════════════════════════════ CTA ═══════════════════════════════ -->
-<section class="cta-section">
-  <div class="section-inner">
-    <div class="cta-card">
-      <h2>Ready to understand AI?</h2>
-      <p>Join thousands of learners who've already started. No account, no payment, no excuses — just your name.</p>
-      <form class="cta-form" id="start-form-2">
-        <input id="username2" type="text" placeholder="Enter your name..." maxlength="80" required>
-        <button type="submit" class="btn-white">Start Learning →</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#" class="footer-logo">
-          <div class="footer-logo-icon">🧠</div>
-          AI Learn
-        </a>
-        <p>An interactive platform to master AI basics through short modules, smart quizzes, and instant feedback. Free forever.</p>
-        <div class="social-links">
-          <a href="#" class="social-btn" title="Twitter/X">𝕏</a>
-          <a href="#" class="social-btn" title="GitHub">⌥</a>
-          <a href="#" class="social-btn" title="LinkedIn">in</a>
-          <a href="#" class="social-btn" title="Discord">◈</a>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h5>Platform</h5>
-        <ul>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#testimonials">Reviews</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h5>Learn</h5>
-        <ul>
-          <li><a href="#">AI Basics</a></li>
-          <li><a href="#">Machine Learning</a></li>
-          <li><a href="#">Neural Networks</a></li>
-          <li><a href="#">LLMs & GPT</a></li>
-          <li><a href="#">AI Ethics</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h5>Admin</h5>
-        <ul>
-          <li><a href="admin_login.php">Admin Login</a></li>
-          <li><a href="#">Documentation</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Use</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2025 AI Learn. Built with ❤️ for curious minds.</span>
-      <div class="footer-links">
-        <a href="#">Privacy</a>
-        <a href="#">Terms</a>
-        <a href="admin_login.php">Admin</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-    <script src="landing_script.js"></script>
+  <script src="landing_script.js"></script>
 </body>
 </html>

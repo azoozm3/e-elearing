@@ -1,62 +1,47 @@
-// sticky header shadow
 const header = document.getElementById("main-header");
+const themeToggle = document.getElementById("theme-toggle");
+const langToggle = document.getElementById("lang-toggle");
+
 window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 20);
 });
 
-// hero form
-async function submitForm(usernameVal) {
-  const username = usernameVal.trim();
-  if (!username) return;
-  const fd = new FormData();
-  fd.append("action", "set_username");
-  fd.append("username", username);
-  await fetch("app.php", { method: "POST", body: fd }).catch(() => {});
-  location.href = "app.php";
-}
-
-document.getElementById("start-form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  submitForm(document.getElementById("username").value);
+themeToggle.addEventListener("click", () => {
+  const html = document.documentElement;
+  const nextTheme = html.dataset.theme === "dark" ? "light" : "dark";
+  html.dataset.theme = nextTheme;
+  themeToggle.textContent = nextTheme === "dark" ? "☀" : "☾";
 });
 
-document.getElementById("start-form-2").addEventListener("submit", (e) => {
-  e.preventDefault();
-  submitForm(document.getElementById("username2").value);
+langToggle.addEventListener("click", () => {
+  const html = document.documentElement;
+  const isArabic = html.lang === "ar";
+  html.lang = isArabic ? "en" : "ar";
+  html.dir = isArabic ? "ltr" : "rtl";
+  langToggle.textContent = isArabic ? "عربي" : "EN";
 });
 
-// smooth scroll for nav links
-document.querySelectorAll('a[href^="#"]').forEach((a) => {
-  a.addEventListener("click", (e) => {
-    const target = document.querySelector(a.getAttribute("href"));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const target = document.querySelector(link.getAttribute("href"));
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
 
-// intersection observer for fade-in
 const observer = new IntersectionObserver(
   (entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = "1";
-        e.target.style.transform = "translateY(0)";
-        observer.unobserve(e.target);
-      }
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
     });
   },
-  { threshold: 0.1 },
+  { threshold: 0.12 },
 );
 
-document
-  .querySelectorAll(
-    ".feature-card, .module-item, .testimonial-card, .stat-item",
-  )
-  .forEach((el) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(24px)";
-    el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
-    observer.observe(el);
-  });
+document.querySelectorAll(".section, .product-card, .category-card, .stats-strip > div").forEach((element) => {
+  element.classList.add("reveal");
+  observer.observe(element);
+});
